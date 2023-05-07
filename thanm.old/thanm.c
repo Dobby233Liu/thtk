@@ -704,7 +704,8 @@ anm_dump(
             list_for_each(&script->instrs, instr) {
                 const char* format = NULL;
                 switch (version) {
-                /* NEWHU: 185 */
+                /* NEWHU: 19 */
+                case 19:
                 case 185:
                 case 18:
                     if ((format = find_format(th18_patch, instr->type))) break; /* fallthrough */
@@ -1316,8 +1317,8 @@ print_usage(void)
     printf("  -V                    display version information and exit\n"
            "  -f                    ignore errors when possible\n"
            "VERSION can be:\n"
-           "  18 or 185\n"
-           /* NEWHU: 185 */
+           "  18, 185 or 19\n"
+           /* NEWHU: 19 */
            "For older games, VERSION can be omitted.\n"
            "Report bugs to <" PACKAGE_BUGREPORT ">.\n");
 }
@@ -1381,7 +1382,8 @@ main(
         if (argc == 2) {
             version = parse_version(argv[0]);
             switch (version) {
-            /* NEWHU: 185 */
+            /* NEWHU: 19 */
+            case 19:
             case 185:
             case 18:
                 break;
