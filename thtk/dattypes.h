@@ -123,6 +123,7 @@ typedef struct {
  * is required to unpack th09e.dat
  *
  *  version   |  params  | sub which selects params and runs th_decrypt
+ * th08 0.01  | 004BD9F8 | 0043BB90
  * th08 1.00d | 004C78E0 | 0043E390
  * th09 0.01a | unknown, but it uses the same params as th08
  * th09 0.02a | 0048E640 | 00429850
@@ -130,16 +131,18 @@ typedef struct {
  * th09 1.50a | 004A1E60 | 0042C290
  *
  * The order in the original games is MTAJEW-*
+ *
+ * HACK: this is for th08 0.01
  */
 static const crypt_params
 th08_crypt_params[] = {
-    { 'M', 0x1b, 0x37,   0x40, 0x2000 }, /* .msg */
-    { 'T', 0x51, 0xe9,   0x40, 0x3000 }, /* .txt */
-    { 'A', 0xc1, 0x51, 0x1400, 0x2000 }, /* .anm */
+    { 'M', 0x1b, 0x37,   0x40, 0xc800 }, /* .msg */
+    { 'T', 0x51, 0xe9,   0x40, 0xc800 }, /* .txt */
+    { 'A', 0xc1, 0x51, 0x1400, 0xc800 }, /* .anm */
     { 'J', 0x03, 0x19, 0x1400, 0x7800 }, /* .jpg */
     { 'E', 0xab, 0xcd,  0x200, 0x1000 }, /* .ecl */
-    { 'W', 0x12, 0x34,  0x400, 0x2800 }, /* .wav */
-    { '-', 0x35, 0x97,   0x80, 0x2800 }, /* .*   */
+    { 'W', 0x12, 0x34,  0x400, 0x5000 }, /* .wav */
+    { '-', 0x35, 0x97,   0x80, 0xc800 }, /* .*   */
     { '*', 0x99, 0x37,  0x400, 0x1000 },
 };
 
